@@ -1,0 +1,17 @@
+{
+    "name": "36168/aiwechat",
+    "description": "the wechat api package",
+    "type": "library",
+    "authors": [
+        {
+            "name": "allenliao123",
+            "email": "361684801@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Wechat\\": "src/"
+        }
+    }
+}
