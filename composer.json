@@ -1,0 +1,8 @@
+{
+  "name": "allen/aiwechat",
+  "description": "微信通用接口设置包",
+  "require": {
+    "php": "^7.2",
+    "guzzlehttp/guzzle": "^6.*"
+  }
+}
