@@ -84,7 +84,7 @@
   //初始化个性化参数，
   $personal = new ButtonPersonalized();
   $personal->setSex(ButtontContants::WOMAN);//设置为女性菜单,具体的类型，查看附录一中的个性化参数
-  //放入个性设置放入个性化菜单中
+  //个性设置放入个性化菜单中
   $btnpersontree->setMatchrule($personal);
   //获取最终需要推送的菜单数据，
   $personmenu = $btnpersontree->getArrayOfPersonalButton(true);
