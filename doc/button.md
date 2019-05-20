@@ -47,7 +47,7 @@
 
 >**个性化菜单按钮**<br>
 ```
-  //设置微信账号信息
+ //设置微信账号信息
  $account = new Account('app_id_xxx','secret_xxx');
  $account->setToken($token); 
  //新建一级菜单按钮
@@ -90,6 +90,24 @@
   $personmenu = $btnpersontree->getArrayOfPersonalButton(true);
   //推送数据到微信
   $data = ButtonFace::setPersonalMenu($account,$personmenu);//设置个性化菜单
+  
+```
+
+>**菜单的其他方法**<br>
+```
+  //设置微信账号信息
+  $account = new Account('app_id_xxx','secret_xxx');
+  $account->setToken($token); 
+  //获取微信端菜单
+  ButtonFace::getMenu($account);
+  
+  //删除菜单
+  ButtonFace::delMenu($account);
+  
+  //删除个性化菜单
+  $button = new ButtonPersonalized();
+  $button->setMenuid('233132');//设置个性化菜单的ID
+  ButtonFace::deletePersonalMenu($account,$button);
   
 ```
 
