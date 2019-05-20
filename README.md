@@ -1,5 +1,5 @@
 # allenliao123/aiwechat
-微信公众号开发的接口包，主要是方便微信开发者免去微信底层的接口调用的开发
+微信公众号开发的接口包，主要是微信底层的接口,公众号开发者只需要实现业务流程
 
 ### Installation
 `$ composer require allenliao123/aiwechat`<br>
