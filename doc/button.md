@@ -8,13 +8,13 @@
  //新建一级菜单按钮
  $button = new Button();
  //设置按钮的类型
- $button->setType(Button::CLICK);
+ $button->setType(Button::CLICK);//按钮类型参考附录一
  $button->setName('一级菜单');
  $button->setKey('9428394jsklfj');//设置key值，微信端会推送给微信接管服务器
  
   //新建二级菜单
   $button2 = new Button();
-  $button2->setType(Button::CLICK);
+  $button2->setType(Button::CLICK);//按钮类型参考附录一
   $button2->setName('二级菜单1');
   $button2->setKey('9428394jsklfj1');
   
@@ -23,7 +23,7 @@
   
  //新建二级菜单
   $button3 = new Button();
-  $button3->setType(Button::CLICK);
+  $button3->setType(Button::CLICK);//按钮类型参考附录一
   $button3->setName('二级菜单2');
   $button3->setKey('9428394jsklfj2');
   
@@ -53,13 +53,13 @@
  //新建一级菜单按钮
  $button = new Button();
  //设置按钮的类型
- $button->setType(Button::CLICK);
+ $button->setType(Button::CLICK);//按钮类型参考附录一
  $button->setName('一级菜单');
  $button->setKey('9428394jsklfj');//设置key值，微信端会推送给微信接管服务器
  
   //新建二级菜单
   $button2 = new Button();
-  $button2->setType(Button::CLICK);
+  $button2->setType(Button::CLICK);//按钮类型参考附录一
   $button2->setName('二级菜单1');
   $button2->setKey('9428394jsklfj1');
   
@@ -68,7 +68,7 @@
   
  //新建二级菜单
   $button3 = new Button();
-  $button3->setType(Button::CLICK);
+  $button3->setType(Button::CLICK);//按钮类型参考附录一
   $button3->setName('二级菜单2');
   $button3->setKey('9428394jsklfj2');
   
@@ -95,7 +95,7 @@
 
 
 ### 附录一
->【按钮类型】<br>
+#### 【按钮类型】<br>
 按钮的类型，完全对应微信API中的数据
 ```
   const CLICK = 'click';
@@ -121,7 +121,7 @@
   const MINIPROGRAM = 'miniprogram';
   //设置小程序类型按钮
 ```
->【个性化菜单设置】<br>
+#### 【个性化菜单设置】<br>
 个性化参数类型，完全对应微信API中的数据
 ```
   $personal = new ButtonPersonalized();
