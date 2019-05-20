@@ -83,7 +83,7 @@
 
   //初始化个性化参数，
   $personal = new ButtonPersonalized();
-  $personal->setSex(ButtontContants::WOMAN);//设置为女性菜单
+  $personal->setSex(ButtontContants::WOMAN);//设置为女性菜单,具体的类型，查看附录一中的个性化参数
   //放入个性设置放入个性化菜单中
   $btnpersontree->setMatchrule($personal);
   //获取最终需要推送的菜单数据，
@@ -95,7 +95,8 @@
 
 
 ### 附录一
-
+>【按钮类型】<br>
+按钮的类型，完全对应微信API中的数据
 ```
   const CLICK = 'click';
   //点击推事件用户点击click类型按钮后，微信服务器会通过消息接口推送消息类型为event的结构给开发者（参考消息接口指南），并且带上按钮中开发者填写的key值，开发者可以通过自定义的key值与用户进行交互；
@@ -120,5 +121,29 @@
   const MINIPROGRAM = 'miniprogram';
   //设置小程序类型按钮
 ```
-
+>【个性化菜单设置】<br>
+个性化参数类型，完全对应微信API中的数据
+```
+  $personal = new ButtonPersonalized();
+  //设置tag_id，设置标签ID
+  $personal->setTagId($tag_id);
+  //性别包括ButtontContants::WOMAN，ButtontContants::MAN
+  $personal->setSex(ButtontContants::WOMAN);性别
+  
+  //设置客户端版本
+  //性别包括ButtontContants::IOS，ButtontContants::ANDROID,ButtontContants::OTHERS
+  $personal->setClientPlatformType($ButtontContants::IOS);
+  //设置国家
+  $personal->setCountry('中国');
+  //设置省
+  $personal->setProvince('湖南省');
+  //设置市
+  $personal->setCity('长沙市');
+  //设置语言
+  //具体语言的种类和微信的种类一致，ButtontContants::zh_TW，ButtontContants::zh_HK，ButtontContants::en等等
+  $personal->setLanguage(ButtontContants::zh_CN);
+  
+  
+  
+```
 
