@@ -2,7 +2,7 @@
 
 ```
  //设置账号
- $account = new Account('wx6366241a8b0df887','aae6f39103127f237cf46fd92ebeca46');
+ $account = new Account('appid','secret');
  //获取token值
  $data = TokenFace::achiveToken($account);
  
