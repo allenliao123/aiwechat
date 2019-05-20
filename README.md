@@ -10,6 +10,11 @@
   $account = new Account('appid_xxx','secret_xxx');
   //获取当前token
   $data = TokenFace::achiveToken($account);
+  
+  //$data的数据结构
+  code:200//代表成功，其他失败
+  body:[]//微信返回的数据
+  
 ```
 
 ### Documentation
