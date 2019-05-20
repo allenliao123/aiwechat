@@ -1,6 +1,6 @@
 # 微信菜单设置
 微信的菜单设置的相关方法和代码<br>
->设置普通菜单按钮<br>
+>**普通菜单按钮**<br>
 ```
   //设置微信账号信息
  $account = new Account('app_id_xxx','secret_xxx');
@@ -44,7 +44,54 @@
   $data = ButtonFace::setMenu($account); 
   
 ```
->类型种类参考[附录](#附录一)<br>
+
+>**个性化菜单按钮**<br>
+```
+  //设置微信账号信息
+ $account = new Account('app_id_xxx','secret_xxx');
+ $account->setToken($token); 
+ //新建一级菜单按钮
+ $button = new Button();
+ //设置按钮的类型
+ $button->setType(Button::CLICK);
+ $button->setName('一级菜单');
+ $button->setKey('9428394jsklfj');//设置key值，微信端会推送给微信接管服务器
+ 
+  //新建二级菜单
+  $button2 = new Button();
+  $button2->setType(Button::CLICK);
+  $button2->setName('二级菜单1');
+  $button2->setKey('9428394jsklfj1');
+  
+  //二级菜单设置到一级菜单中的子菜单中
+  $button->setSubButton($button2);
+  
+ //新建二级菜单
+  $button3 = new Button();
+  $button3->setType(Button::CLICK);
+  $button3->setName('二级菜单2');
+  $button3->setKey('9428394jsklfj2');
+  
+  //二级菜单设置到一级菜单中的子菜单中
+  $button->setSubButton($button3);
+  
+  //设置个性化菜单树
+  $btnpersontree = new ButtonPersonalizedTree();
+  //设置一级菜单，如果有多个一级菜单，则可以继续设置
+  //如$btnpersontree->setButton($button2);，$btnpersontree->setButton($button3);一级菜单不超过3个
+  $btnpersontree->setButton($button);
+
+  //初始化个性化参数，
+  $personal = new ButtonPersonalized();
+  $personal->setSex(ButtontContants::WOMAN);//设置为女性菜单
+  //放入个性设置放入个性化菜单中
+  $btnpersontree->setMatchrule($personal);
+  //获取最终需要推送的菜单数据，
+  $personmenu = $btnpersontree->getArrayOfPersonalButton(true);
+  //推送数据到微信
+  $data = ButtonFace::setPersonalMenu($account,$personmenu);//设置个性化菜单
+  
+```
 
 
 ### 附录一
