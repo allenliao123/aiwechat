@@ -15,6 +15,23 @@
   code:200//代表成功，其他失败
   body:[]//微信返回的数据
   
+  //*****************************************************
+  //服务端消息处理
+  $app = WechatService::appWechat($account);
+  //设置消息处理机制
+  $app->push(function($message){
+      /**
+       * 逻辑处理
+       *$message为解析到的微信推送的消息类，具体查看【服务端】
+       */
+      $image = new ReplyImage();
+      $image->setMediaId('sssss');
+      return $image;
+
+  });
+  $response = $app->run()->send();
+  //*****************************************************
+  
 ```
 
 ### Documentation
