@@ -38,6 +38,7 @@ class HttpClient
             $response = $client->request('GET',$url,['verify' => false]);
             $code = $response->getStatusCode(); // 200
             $body = $response->getBody()->getContents();
+            $body = json_decode($body,true);
             return compact('code','body');
         }catch (\Exception $exception){
 
@@ -63,6 +64,7 @@ class HttpClient
             $response = $client->request('POST',$url,['verify' => false,'body'=>$data]);
             $code = $response->getStatusCode(); // 200
             $body = $response->getBody()->getContents();
+            $body = json_decode($body,true);
             return compact('code','body');
         }catch (\Exception $exception){
 

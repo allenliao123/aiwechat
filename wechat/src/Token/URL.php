@@ -9,6 +9,8 @@
 
 namespace Wechat\Token;
 
+use Wechat\Utils\Constants;
+
 /******************************************
  * 类名： URL
  * @package Wechat\Token
@@ -21,6 +23,6 @@ namespace Wechat\Token;
 class URL
 {
 
-    const TOKEN_VALUE_GET = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s";
+    const TOKEN_VALUE_GET = "https://".Constants::HTTP_API."/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s";
 
 }
