@@ -11,7 +11,7 @@
   
   //*****************************************************
   //服务端消息处理
-  $app = WechatService::appWechat($account);
+  $app = WechatService::app($account);
   //设置消息处理机制
   $app->push(function($message){
       /**
