@@ -5,6 +5,7 @@
   //设置微信账号信息
  $account = new Account('app_id_xxx','secret_xxx');
  $account->setToken($token); 
+ $app = WechatService::app($account);
  //新建一级菜单按钮
  $button = new Button();
  //设置按钮的类型
@@ -41,7 +42,7 @@
   $menu = $btntree->getArrayOfButton(true);//如果是获取数组，则传入false参数
   
   //推送到微信服务器
-  $data = ButtonFace::setMenu($account); 
+  $data = $app->menu->setMenu($menu); 
   
 ```
 
@@ -50,6 +51,7 @@
  //设置微信账号信息
  $account = new Account('app_id_xxx','secret_xxx');
  $account->setToken($token); 
+ $app = WechatService::app($account);
  //新建一级菜单按钮
  $button = new Button();
  //设置按钮的类型
@@ -89,8 +91,7 @@
   //获取最终需要推送的菜单数据，
   $personmenu = $btnpersontree->getArrayOfPersonalButton(true);
   //推送数据到微信
-  $data = ButtonFace::setPersonalMenu($account,$personmenu);//设置个性化菜单
-  
+  $data =$app->menu->setPersonalMenu($personmenu);//设置个性化菜单
 ```
 
 >**菜单的其他方法**<br>
@@ -98,16 +99,17 @@
   //设置微信账号信息
   $account = new Account('app_id_xxx','secret_xxx');
   $account->setToken($token); 
+  $app = WechatService::app($account);
   //获取微信端菜单
-  ButtonFace::getMenu($account);
+   $app->menu->getMenu();
   
   //删除菜单
-  ButtonFace::delMenu($account);
+  $app->menu->delMenu();
   
   //删除个性化菜单
   $button = new ButtonPersonalized();
   $button->setMenuid('233132');//设置个性化菜单的ID
-  ButtonFace::deletePersonalMenu($account,$button);
+  $app->menu->deletePersonalMenu($button);
   
 ```
 
