@@ -16,7 +16,7 @@
   $app->push(function($message){
       /**
        * 逻辑处理
-       *$message为解析到的微信推送的消息类，具体查看【服务端】
+       *$message为解析到的微信推送的消息类，具体查看【消息管理中】的数据
        */
       $image = new ReplyImage();
       $image->setMediaId('sssss');
