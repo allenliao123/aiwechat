@@ -286,7 +286,7 @@ const TYPE_EVENT = 'event';//事件消息
 
 + 事件消息类型
 ```
-//类MessageConstants 中
+//类EventConstants 中
 const  EVENT_SUBSCRIBE = 'subscribe';//(订阅)
 const  EVENT_UNSUBSCRIBE = 'unsubscribe';//取消订阅
 const  EVENT_SCAN = 'SCAN';//扫描类型
