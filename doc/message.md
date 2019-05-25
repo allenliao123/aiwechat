@@ -161,8 +161,113 @@
 #### 事件消息
 + 关注取消事件
 ```
+$app->push(function($message){
+     
+      //存在以下方法,EventConstants::EVENT_SUBSCRIBE为关注事件，EventConstants::EVENT_UNSUBSCRIBE取消关注事件
+      if($message->getMsgType() == MessageConstants::TYPE_EVENT && $message->getEvent() == EventConstants::EVENT_SUBSCRIBE){
+        $message->getToUserName();//开发者微信号
+        $message->getFromUserName();//发送方帐号（一个OpenID）
+        $message->getCreateTime();//消息创建时间 （整型）
+        $message->getMsgType();//消息类型,类型种类参考附录,如（MessageConstants::TYPE_TEXT）
+        $message->getEvent();//消息事件类型
+        
+      }
+      
+  });
  
 ```
+
++ 扫描带参数二维码事件
+```
+$app->push(function($message){
+     
+       //1. 用户未关注时，进行关注后的事件推送,关注后微信会将带场景值关注事件推送给开发者。
+      if($message->getMsgType() == MessageConstants::TYPE_EVENT && $message->getEvent() == EventConstants::EVENT_SUBSCRIBE){
+        $message->getToUserName();//开发者微信号
+        $message->getFromUserName();//发送方帐号（一个OpenID）
+        $message->getCreateTime();//消息创建时间 （整型）
+        $message->getMsgType();//消息类型,类型种类参考附录,如（MessageConstants::TYPE_TEXT）
+        $message->getEvent();//消息事件类型
+        $message->getEventKey();//事件KEY值，qrscene_为前缀，后面为二维码的参数值
+        $message->geTicket();//二维码的ticket，可用来换取二维码图片
+        
+      }
+      
+      //2. 用户已关注时的事件推送
+      if($message->getMsgType() == MessageConstants::TYPE_EVENT && $message->getEvent() == EventConstants::EVENT_SCAN){
+        $message->getToUserName();//开发者微信号
+        $message->getFromUserName();//发送方帐号（一个OpenID）
+        $message->getCreateTime();//消息创建时间 （整型）
+        $message->getMsgType();//消息类型,类型种类参考附录,如（MessageConstants::TYPE_TEXT）
+        $message->getEvent();//消息事件类型
+        $message->getEventKey();//事件KEY值，qrscene_为前缀，后面为二维码的参数值
+        $message->geTicket();//二维码的ticket，可用来换取二维码图片
+        
+      }
+      
+  });
+ 
+```
+
++ 上报地理位置事件
+```
+$app->push(function($message){
+     
+       //1. 用户未关注时，进行关注后的事件推送,关注后微信会将带场景值关注事件推送给开发者。
+      if($message->getMsgType() == MessageConstants::TYPE_EVENT && $message->getEvent() == EventConstants::EVENT_LOCATION){
+        $message->getToUserName();//开发者微信号
+        $message->getFromUserName();//发送方帐号（一个OpenID）
+        $message->getCreateTime();//消息创建时间 （整型）
+        $message->getMsgType();//消息类型,类型种类参考附录,如（MessageConstants::TYPE_TEXT）
+        $message->getEvent();//消息事件类型
+        $message->getLatitude();//地理位置纬度
+        $message->getLongitude();//地理位置经度
+        $message->getPrecision();//地理位置精度
+        
+      }
+      
+  });
+ 
+```
+
++ 自定义菜单事件
+```
+$app->push(function($message){
+     
+       //1. 用户未关注时，进行关注后的事件推送,关注后微信会将带场景值关注事件推送给开发者。
+      if($message->getMsgType() == MessageConstants::TYPE_EVENT && $message->getEvent() == EventConstants::EVENT_CLICK){
+        $message->getToUserName();//开发者微信号
+        $message->getFromUserName();//发送方帐号（一个OpenID）
+        $message->getCreateTime();//消息创建时间 （整型）
+        $message->getMsgType();//消息类型,类型种类参考附录,如（MessageConstants::TYPE_TEXT）
+        $message->getEvent();//事件KEY值，与自定义菜单接口中KEY值对应
+        
+      }
+      
+  });
+ 
+```
+
++ 点击菜单跳转链接时的事件推送
+```
+$app->push(function($message){
+     
+       //1. 用户未关注时，进行关注后的事件推送,关注后微信会将带场景值关注事件推送给开发者。
+      if($message->getMsgType() == MessageConstants::TYPE_EVENT && $message->getEvent() == EventConstants::EVENT_CLICK){
+        $message->getToUserName();//开发者微信号
+        $message->getFromUserName();//发送方帐号（一个OpenID）
+        $message->getCreateTime();//消息创建时间 （整型）
+        $message->getMsgType();//消息类型,类型种类参考附录,如（MessageConstants::TYPE_TEXT）
+        $message->getEvent();//事件KEY值，设置的跳转URL
+        
+      }
+      
+  });
+ 
+```
+
+### 回复消息
+
 
 
 ### 附录
@@ -178,4 +283,16 @@ const TYPE_LOCATION = 'location';//地理位置消息
 const TYPE_LINK = 'link';//链接消息
 const TYPE_EVENT = 'event';//事件消息
 ```
+
++ 事件消息类型
+```
+//类MessageConstants 中
+const  EVENT_SUBSCRIBE = 'subscribe';//(订阅)
+const  EVENT_UNSUBSCRIBE = 'unsubscribe';//取消订阅
+const  EVENT_SCAN = 'SCAN';//扫描类型
+const  EVENT_LOCATION = 'LOCATION';//上报地理位置事件
+const  EVENT_CLICK = 'CLICK';//自定义菜单事件
+const  EVENT_VIEW = 'VIEW';//菜单跳转链接时的事件
+const TY
+
 
