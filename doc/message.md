@@ -267,7 +267,121 @@ $app->push(function($message){
 ```
 
 ### 回复消息
++ 示例代码
+```
+  $app = WechatService::app($account);
+  $app->push(function($message){
+      //设置回复消息
+      $text = new ReplyImage();
+      $text->setMediaId('sssss');
+      return $text;
 
+  });
+  //获取回复的XML内容，$response
+  $response = $app->run()->send();
+```
+>消息类
++ 回复文本消息
+```
+  $app = WechatService::app($account);
+  $app->push(function($message){
+      //设置回复消息
+      $text = new ReplyText();
+      $text->setContent('sssss');
+      return $text;
+
+  });
+  //获取回复的XML内容，$response
+  $response = $app->run()->send();
+```
+
++ 回复图片消息
+```
+  $app = WechatService::app($account);
+  $app->push(function($message){
+      //设置回复消息
+      $text = new ReplyImage();
+      $text->setMediaId('ssss');
+      return $text;
+
+  });
+  //获取回复的XML内容，$response
+  $response = $app->run()->send();
+```
+
++ 回复语音消息
+```
+  $app = WechatService::app($account);
+  $app->push(function($message){
+      //设置回复消息
+      $text = new ReplyVoice();
+      $text->setMediaId('ssss');
+      return $text;
+
+  });
+  //获取回复的XML内容，$response
+  $response = $app->run()->send();
+```
+
+
++ 回复视频消息
+```
+  $app = WechatService::app($account);
+  $app->push(function($message){
+      //设置回复消息
+      $text = new ReplyVideo();
+      $text->setMediaId('ssss');
+      $text->setTitle('ssss');
+      $text->setDescription('ssss');
+      return $text;
+
+  });
+  //获取回复的XML内容，$response
+  $response = $app->run()->send();
+```
+
++ 回复音乐消息
+```
+  $app = WechatService::app($account);
+  $app->push(function($message){
+      //设置回复消息
+      $text = new ReplyMusic();
+      $text->setMusicURL('ssss');
+      $text->setHQMusicUrl('ssss');
+      $text->setThumbMediaId('ssss');
+      $text->setTitle('ssss');
+      $text->setDescription('ssss');
+      return $text;
+
+  });
+  //获取回复的XML内容，$response
+  $response = $app->run()->send();
+```
+
+
++ 回复图文消息
+```
+  $app = WechatService::app($account);
+  $app->push(function($message){
+      //设置回复消息
+     $articl = new ReplyArticle();
+     $articl->setTitle('测试标题');
+     $articl->setDescription("描述");
+     $articl->setPicurl("http://www.baidu.com");
+     $articl->setUrl("http://www.baidu_url.com");
+
+     $imagestext = new ReplyImageText();
+     $imagestext->setFromUserName('sss');
+     $imagestext->setToUserName('sss');
+     $imagestext->setCreateTime(time());
+     //设置到图文列表
+     $imagestext->setArtitle($articl);
+     return $imagestext;
+
+  });
+  //获取回复的XML内容，$response
+  $response = $app->run()->send();
+```
 
 
 ### 附录
