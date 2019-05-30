@@ -23,7 +23,7 @@ class MessageText
     use MessageTrait;
 
     private $content = null;//文本消息内容
-
+    private $bizmsgmenuid = null;//发送的是客服问卷等信息时，有该属性
     /**
      * @return null
      */
@@ -40,8 +40,20 @@ class MessageText
         $this->content = $content;
     }
 
+    /**
+     * @return null
+     */
+    public function getBizmsgmenuid()
+    {
+        return $this->bizmsgmenuid;
+    }
 
-
-
+    /**
+     * @param null $bizmsgmenuid
+     */
+    public function setBizmsgmenuid($bizmsgmenuid): void
+    {
+        $this->bizmsgmenuid = $bizmsgmenuid;
+    }
 
 }

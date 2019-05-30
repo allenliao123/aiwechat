@@ -22,7 +22,6 @@ class EventConstants
 {
     const  EVENT_SUBSCRIBE = 'subscribe';//(订阅)
     const  EVENT_UNSUBSCRIBE = 'unsubscribe';//取消订阅
-
     const EVENT_SCAN = 'SCAN';//扫描类型
     const EVENT_LOCATION = 'LOCATION';//上报地理位置事件
     const EVENT_CLICK = 'CLICK';//自定义菜单事件

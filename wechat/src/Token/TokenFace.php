@@ -11,6 +11,7 @@ namespace Wechat\Token;
 
 use GuzzleHttp\Client;
 use Wechat\Common\Account;
+use Wechat\Traits\Face;
 use Wechat\Utils\HttpClient;
 
 /******************************************
@@ -24,6 +25,7 @@ use Wechat\Utils\HttpClient;
  */
 class TokenFace
 {
+    use Face;
 
     /******************************************
      * @param Account $account
@@ -33,8 +35,9 @@ class TokenFace
      * 时间：17:31
      * 创建者：36168
      */
-    public static function achiveToken(Account $account){
+    public function achiveToken(){
 
+       $account = $this->account;
        //获取URL值
        $url = vsprintf(URL::TOKEN_VALUE_GET,[$account->getAppid(),$account->getSecret()]);
        $data = HttpClient::Get($url);

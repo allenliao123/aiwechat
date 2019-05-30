@@ -21,8 +21,8 @@ trait MessageTrait
     private $toUserName = null;//开发者微信号
     private $fromUserName = null;//发送方帐号（一个OpenID）
     private $createTime = null;//消息创建时间 （整型）
-    private $msgType = null;
-    private $msgId = null;
+    private $msgType = null;//消息类型
+    private $msgId = null;//消息id
 
     /**
      * @return null

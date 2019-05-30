@@ -94,6 +94,11 @@ class MessageFace
             if($res->MsgType == MessageConstants::TYPE_TEXT){
                 $msg = new MessageText();
                 $msg->setContent($res->Content);
+
+                //设置问卷属性，参考客服消息中，发送菜单消息
+                if(!empty($res->bizmsgmenuid)){
+                    $msg->setBizmsgmenuid($res->bizmsgmenuid);
+                }
             }
 
 
@@ -150,8 +155,6 @@ class MessageFace
         $msg->setToUserName($res->ToUserName);
         $msg->setFromUserName($res->FromUserName);
         $msg->setMsgType($res->MsgType);
-
-
 
         return $msg;
 

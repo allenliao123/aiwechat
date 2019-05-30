@@ -24,6 +24,7 @@ class Account
     private $appid = null;
     private $secret = null;
     private $token = null;
+    private $wx_number = null;
 
     /******************************************
      * 构造函数
@@ -84,6 +85,23 @@ class Account
     {
         $this->token = $token;
     }
+
+    /**
+     * @return null
+     */
+    public function getWxNumber()
+    {
+        return $this->wx_number;
+    }
+
+    /**
+     * @param null $wx_number
+     */
+    public function setWxNumber($wx_number): void
+    {
+        $this->wx_number = $wx_number;
+    }
+
 
 
 }

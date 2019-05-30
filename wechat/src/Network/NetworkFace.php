@@ -11,6 +11,7 @@ namespace Wechat\Network;
 
 use Wechat\Common\Account;
 use Wechat\Network\Entity\Network;
+use Wechat\Traits\Face;
 use Wechat\Utils\HttpClient;
 
 /******************************************
@@ -25,16 +26,18 @@ use Wechat\Utils\HttpClient;
 class NetworkFace
 {
 
+    use Face;
+
     /**************************************
      * 描述: 获取微信服务器IP地址
      * 日期：2019/5/20
      * 时间：16:12
      * 创建者：36168
      */
-    public static function getWechat(Account $account){
+    public  function getIPs(){
 
         //获取URL值
-        $url = vsprintf(UrlNetwork::WECHAT_IP,[$account->getToken()]);
+        $url = vsprintf(UrlNetwork::WECHAT_IP,[$this->account->getToken()]);
         $data = HttpClient::Get($url);
         return $data;
 
@@ -48,10 +51,10 @@ class NetworkFace
      * 时间：17:14
      * 创建者：36168
      */
-    public static function checkNetwork(Account $account,Network $network){
+    public  function checkNetwork(Network $network){
 
         //获取URL值
-        $url = vsprintf(UrlNetwork::NETWORK,[$account->getToken()]);
+        $url = vsprintf(UrlNetwork::NETWORK,[$this->getToken()]);
         $data = HttpClient::Post($url,$network->getJsonOfValues());
         return $data;
 

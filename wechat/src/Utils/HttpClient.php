@@ -76,4 +76,51 @@ class HttpClient
 
     }
 
+
+    /**************************************
+     * 描述: 上传文件
+     * 日期：2019/5/25
+     * 时间：16:09
+     * 创建者：36168
+     */
+    public static function Upload($url,$file,$media){
+
+        $file = array_values($file);
+        if(is_array($file)){
+            $temp = $file[0]['tmp_name'];
+        }else{
+
+            if(file_exists($file)){
+                $temp = $file;
+            }else{
+                throw new \Exception('文件不存在');
+            }
+        }
+
+
+        try{
+            $client = new Client();
+            $response = $client->request('POST',$url, [
+                'verify' => false,
+                'multipart' => [
+                    [
+                        'name'     => $media,
+                        'contents' => fopen($temp, 'r'),
+                    ],
+                ]
+            ]);
+            $code = $response->getStatusCode(); // 200
+            $body = $response->getBody()->getContents();
+            $body = json_decode($body,true);
+            return compact('code','body');
+        }catch (\Exception $exception){
+
+            $code = -1; // 200
+            $body = $exception->getMessage();
+            return compact('code','body');
+
+        }
+
+    }
+
 }
