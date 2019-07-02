@@ -4,7 +4,6 @@
 ```
   //设置微信账号信息
  $account = new Account('app_id_xxx','secret_xxx');
- $account->setToken($token); 
  $app = WechatService::app($account);
  //新建一级菜单按钮
  $button = new Button();
@@ -50,7 +49,6 @@
 ```
  //设置微信账号信息
  $account = new Account('app_id_xxx','secret_xxx');
- $account->setToken($token); 
  $app = WechatService::app($account);
  //新建一级菜单按钮
  $button = new Button();
@@ -98,7 +96,6 @@
 ```
   //设置微信账号信息
   $account = new Account('app_id_xxx','secret_xxx');
-  $account->setToken($token); 
   $app = WechatService::app($account);
   //获取微信端菜单
    $app->menu->getMenu();
