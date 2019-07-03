@@ -32,6 +32,27 @@
   code:200//代表成功，其他失败<br>
   body:[]//微信返回的数据<br>
   
+  
+### 微信接入指南
++ 服务器配置
+```
+   $signal = new Signature();
+   $signal->setToken($token);//令牌(Token)
+   $signal->setSignature($signature);//微信发送过来的签名
+   $signal->setTimestamp($timestamp);//微信发送的时间戳
+   $signal->setNonce($nonce);//随机数
+   $signal->setEchostr($echostr);//随机字符串
+  
+   //设置微信账号
+  $account = new Account('appid_xxx','secret_xxx');
+  //*****************************************************
+  //服务端消息处理
+  $app = WechatService::app($account);
+  $app->setSignature($signal);
+  
+  $data = $app->run()->send();//验证通过可以返回对应的随机字符串
+
+```
 
 ### Documentation
 - [1、网络相关](https://github.com/allenliao123/aiwechat/blob/master/doc/network.md)<br>
