@@ -17,7 +17,7 @@ $app->push(function($message){
      $message->getToUserName();//获取开发者微信号
      $message->getFromUserName();//获取发送方帐号（一个OpenID）
      $message->getCreateTime();//获取消息创建时间 （整型）
-     message->getMsgType();//获取消息类型
+     $message->getMsgType();//获取消息类型
      1.text
      2.voice
      3.vedio
