@@ -18,8 +18,39 @@ $app->push(function($message){
 $data = $app->run()->send();
 ```
 ### 消息回复类
-+ 文本消息类
++ 文本回复
 ```
 $text = new ReplyText(); //消息回复具体类别，见下方
 $text->setContent('XXX');
+```
++ 图片回复
+```
+$image = new ReplyImage();
+$image->setMediaId('dm8jwwZI-q-yIR9i6mg94dpuNB6-WMZHwVj_SEQYs60');
+return $image;
+```
++ 音频回复
+```
+$voice = new ReplyVoice();
+$voice->setMediaId('dm8jwwZI-q-yIR9i6mg94ff2l8A4y4iriOgMu7UtTEo');
+return $voice;
+```
+
++ 视频回复
+```
+$vedio = new ReplyVideo();
+$vedio->setMediaId('dm8jwwZI-q-yIR9i6mg94cY6F7tE6qCLlKYY4fkqSQ0');
+return $vedio;
+```
++ 图文消息列表
+```
+【只能回复一条】
+$articleList = new ReplyImageText();
+$article = new ReplyArticle();
+$article->setTitle('图文');
+$article->setDescription('描述');
+$article->setPicurl('https://XXXXX');
+$article->setUrl('http://www.baidu.com');
+$articleList->setArtitle($article);
+return $articleList;
 ```
