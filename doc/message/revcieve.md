@@ -18,6 +18,7 @@ $app->push(function($message){
      $message->getFromUserName();//获取发送方帐号（一个OpenID）
      $message->getCreateTime();//获取消息创建时间 （整型）
      $message->getMsgType();//获取消息类型
+     $message->getMsgId();//获取消息ID
      1.text
      2.voice
      3.vedio
@@ -35,3 +36,43 @@ $data = $app->run()->send();
 $msg = $message->getContent();//获取类容
 
 ```
+
++ 图片消息[MessageImage]
+```
+$url = $message->getPicUrl();//获取图片连接
+$media_id = $message->getMediaId();//消息id，64位整型
+```
+
++ 语音消息[MessageVoice]
+```
+$format = $message->getFormat();//获取语音格式，如amr，speex等
+$media_id = $message->getMediaId();//消息id，64位整型
+```
+
++ 视频消息[MessageVideo]
+```
+$format = $message->getThumbMediaId();//视频消息缩略图的媒体id，可以调用多媒体文件下载接口拉取数据。
+$media_id = $message->getMediaId();//消息id，64位整型
+```
+
++ 小视频消息[MessageShortVideo]
+```
+$format = $message->getThumbMediaId();//视频消息缩略图的媒体id，可以调用多媒体文件下载接口拉取数据。
+$media_id = $message->getMediaId();//消息id，64位整型
+```
+
++ 地理位置消息[MessageShortVideo]
+```
+$x = $message->getLocationX();//地理位置维度
+$y = $message->getLocationY();//	地理位置经度
+$scale = $message->getScale();//地图缩放大小
+$label = $message->getLabel();//	地理位置信息
+```
+
++ 链接消息[MessageLink]
+```
+$x = $message->getTitle();//消息标题
+$y = $message->getDescription();//	消息描述
+$scale = $message->getUrl();//消息链接
+```
+
