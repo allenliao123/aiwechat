@@ -49,10 +49,12 @@ $data = $app->customer->update($c);
 ```
 
 + 删除客服
+```
 $account = new Account('xxx','xxxx');
 $app = WechatService::app($account);
 $c = new CustomerAccount();
 $c->setKfAccount('客服');
 $data = $app->customer->del($c);
+```
 
 
