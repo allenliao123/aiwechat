@@ -1,4 +1,4 @@
-### 客服消息
+### 客服管理
 + 获取客服列表
 ```
 $account = new Account('xxx','xxxx');
