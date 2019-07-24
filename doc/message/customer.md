@@ -57,4 +57,11 @@ $c->setKfAccount('客服');
 $data = $app->customer->del($c);
 ```
 
++ 客户输入状态下发
+```
+$kmsg =  new KCustomerStatus();
+$kmsg->setTouser("o0biu5hfmsDvQf2TO_XJFwZPJMm8");
+$kmsg->setCommand(KCustomerStatus::TYPING);//CANCELTYPING 为取消下发
+```
+
 
