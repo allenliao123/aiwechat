@@ -54,3 +54,6 @@ $article->setUrl('http://www.baidu.com');
 $articleList->setArtitle($article);
 return $articleList;
 ```
+
+### 将消息转发给客服
+
