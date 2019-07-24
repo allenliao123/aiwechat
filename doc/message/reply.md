@@ -56,4 +56,11 @@ return $articleList;
 ```
 
 ### 将消息转发给客服
+```
+$msg  = new KTransform();
+$c = new CustomerAccount();
+$c->setKfAccount('3616@3616');
+$msg->setKfAccount($c);
+return $msg;
+```
 
