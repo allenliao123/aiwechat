@@ -73,3 +73,31 @@ $k->setKfAccount('liao@123');
 $k->setOpenid('o0biu5hfmsDvQf2TO_XJFwZPJMm8');
 $data = $app->customer->sessionCreate($k);
 ```
++ 关闭会话
+```
+$k = new SessionKF();
+$k->setKfAccount('liao@123');
+$k->setOpenid('o0biu5hfmsDvQf2TO_XJFwZPJMm8');
+$data = $app->customer->sessionClose($k);
+```
+
++ 获取客服会话状态
+```
+$k = new SessionKF();
+$k->setOpenid('o0biu5hfmsDvQf2TO_XJFwZPJMm8');
+$data = $app->customer->sessionStatus($k);
+```
+
++ 获取客服会话列表
+```
+$k = new SessionKF();
+$k->setOpenid('o0biu5hfmsDvQf2TO_XJFwZPJMm8');
+$data = $app->customer->sessionList($k);
+```
+
++ 获取未接入会话列表
+
+```
+$data = $app->customer->sessionList();
+```
+
