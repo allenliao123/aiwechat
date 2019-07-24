@@ -65,3 +65,11 @@ $kmsg->setCommand(KCustomerStatus::TYPING);//CANCELTYPING 为取消下发
 ```
 
 
+### 客服会话控制
++ 创建会话
+```
+$k = new SessionKF();
+$k->setKfAccount('liao@123');
+$k->setOpenid('o0biu5hfmsDvQf2TO_XJFwZPJMm8');
+$data = $app->customer->sessionCreate($k);
+```
