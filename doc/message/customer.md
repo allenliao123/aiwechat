@@ -101,3 +101,13 @@ $data = $app->customer->sessionList($k);
 $data = $app->customer->sessionList();
 ```
 
+### 获取客服聊天记录
+```
+$k = new KChatRecord();
+$k->setEndtime(time());
+$k->setStarttime(time());
+$k->setNumber(10);
+$k->setMsgid(1);
+$data = $app->customer->chatRecord($k);
+```
+
