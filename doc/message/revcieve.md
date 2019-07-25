@@ -76,3 +76,18 @@ $y = $message->getDescription();//	消息描述
 $scale = $message->getUrl();//消息链接
 ```
 
+### 接收到的事件消息
+```
+ //通用方法
+ $message->getToUserName();//获取开发者微信号
+ $message->getFromUserName();//获取发送方帐号（一个OpenID）
+ $message->getCreateTime();//获取消息创建时间 （整型）
+ $message->getMsgType();//获取消息类型
+```
+
++ 关注/取消关注事件[EventSubscribe]
+```
+   $message->getEvent()//获取事件
+```
+    
+
