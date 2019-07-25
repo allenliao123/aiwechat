@@ -59,5 +59,6 @@
 - [微信Token值获取](https://github.com/allenliao123/aiwechat/blob/master/doc/token.md)<br>
 - [微信菜单的设置](https://github.com/allenliao123/aiwechat/blob/master/doc/button.md)<br>
 - [消息管理](https://github.com/allenliao123/aiwechat/blob/master/doc/message/index.md)<br>
+- [模板消息](https://github.com/allenliao123/aiwechat/blob/master/doc/template.md)
 - [客服消息](https://github.com/allenliao123/aiwechat/blob/master/doc/message/customer.md)
 - [素材管理](https://github.com/allenliao123/aiwechat/blob/master/doc/material.md)<br>
